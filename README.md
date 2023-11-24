@@ -6,15 +6,7 @@
 In this current folder I already saved a docker image "demo-docker.tar" using the 
 docker CMD > docker save demo-docker.tar demo-docker-app:latest
 
-
-
-# To run the saved docker image
-1. Dowonload the source code from git and point to folder demo-docker in the command prompt
-2. Run the CMD => docker load --input demo-docker.tar
-3. The image will be available in local docker client. If we run the command => docker images 
-   then the repository should list demo-docker-app
-4. CMD> docker run --rm -d -p 81:80/tcp demo-docker-app:latest 
-5. Browse http://localhost:81/  The application home page should be displayed. 
+--------------------SCENARIO 1: Build and run a new docker image from code-------------
 
 
 # Step -1: Create New Docker image from the code build
@@ -35,9 +27,19 @@ To create a new docker image from this code and DockerFile please follow the ins
 4. Application Home page e.g. angular default should be displayed. 
 
 
+----------------------SCENARIO 2: Save a docker image from docker client to disk and reolad the image ---
 
+# Step-1: Save a docker image to the disk in a target directory
+1. In the terminal window point to the target directory to save the image
+2. Run Docker Command CMD> docker save -o angular-docker-example.tar angular-docker-example
+3. In the target directory a new tar file should be saved with the name angular-docker-example.tar
 
-
+# Step-2: To run the saved docker image
+2. Run the CMD => docker load --input angular-docker-example.tar
+3. The image will be available in local docker client. If we run the command => docker images 
+   then the repository should list angular-docker-example
+4. CMD> docker run --rm -d -p 80:80/tcp angular-docker-example:latest 
+5. Browse http://localhost:80/  The application home page should be displayed. 
 
 
 ================================================================
