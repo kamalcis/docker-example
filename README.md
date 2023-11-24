@@ -17,14 +17,26 @@ docker CMD > docker save demo-docker.tar demo-docker-app:latest
 5. Browse http://localhost:81/  The application home page should be displayed. 
 
 
-# Create New Docker image from the code build
+# Step -1: Create New Docker image from the code build
 To create a new docker image from this code and DockerFile please follow the instructions
-1. Make sure you have node version v18.18.0 
-2. Build the solution using CMD> ng build
+1. Open the folder DOCKER-EXAMPLE 
+2. Make sure you have node version v18.18.0 
+3. Build the solution using CMD> ng build
 3. Run the Docker Desktop from start menu
-4. Build Docker Image using the CMD> docker build --pull --rm -f "Dockerfile" -t demo-docker-image "." 
+4. Build Docker Image using the CMD> docker build --pull --rm -f "Dockerfile" -t angular-docker-example "." 
 5. TO verify the docker image created run command CMD> docker images 
-6. In the repository list the image "demo-docker-image" should be listed. 
+6. In the repository list the image "angular-docker-example" should be listed. 
+
+
+# Step-2: To run the docker image created in step-1
+1. Make sure you are in the root directory in terminal
+2. Run the docker command CMD> docker run --rm -d -p 80:80/tcp angular-docker-example:latest
+3. Visit the site http://localhost:80 in browser
+4. Application Home page e.g. angular default should be displayed. 
+
+
+
+
 
 
 
