@@ -1,5 +1,35 @@
 # DockerExample
 
+
+# Docker Image Handling
+===============================================================
+In this current folder I already saved a docker image "demo-docker.tar" using the 
+docker CMD > docker save demo-docker.tar demo-docker-app:latest
+
+
+
+# To run the saved docker image
+1. Dowonload the source code from git and point to folder demo-docker in the command prompt
+2. Run the CMD => docker load --input demo-docker.tar
+3. The image will be available in local docker client. If we run the command => docker images 
+   then the repository should list demo-docker-app
+4. CMD> docker run --rm -d -p 81:80/tcp demo-docker-app:latest 
+5. Browse http://localhost:81/  The application home page should be displayed. 
+
+
+# Create New Docker image from the code build
+To create a new docker image from this code and DockerFile please follow the instructions
+1. Make sure you have node version v18.18.0 
+2. Build the solution using CMD> ng build
+3. Run the Docker Desktop from start menu
+4. Build Docker Image using the CMD> docker build --pull --rm -f "Dockerfile" -t demo-docker-image "." 
+5. TO verify the docker image created run command CMD> docker images 
+6. In the repository list the image "demo-docker-image" should be listed. 
+
+
+
+================================================================
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
 ## Development server
